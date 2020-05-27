@@ -188,6 +188,7 @@ def player_stats(player_name)
     end
   end 
   stats 
-end 
+end
+def 
 
 # I followed the code from the youtube video Hashketball 091619 by Evans Wang for this lab.
