@@ -1,4 +1,5 @@
 # Write your code below game_hash
+require 'pry'
 def game_hash
   {
     home: {
@@ -127,3 +128,65 @@ def game_hash
 end
 
 # Write code here
+def get_players
+  players = game_hash.keys.map do|team|
+  game_hash[team][:players]
+  end
+  players.flatten
+end 
+
+def num_points_scored(player_name)
+  found_player = get_players.find do |player|
+    player[:player_name] == player_name
+  end 
+  found_player[:points]
+end 
+
+def shoe_size(player_name)
+  found_player = get_players.find do |player|
+    player[:player_name] == player_name
+  end 
+  found_player[:shoe]
+end 
+def team_colors(team_name)
+  colors =[]
+  if game_hash[:away][:team_name]==team_name
+    colors=game_hash[:away][:colors]
+  else
+    colors=game_hash[:home][:colors]
+  end 
+end 
+def team_names
+  names=[]
+  names.push(game_hash[:home][:team_name])
+  names.push(game_hash[:away][:team_name])
+end 
+def player_numbers(team_name)
+  numbers=[]
+  if game_hash[:home][:team_name]==team_name
+     players=game_hash[:home][:players]
+  else 
+     players=game_hash[:away][:players]
+  end 
+  players.each do |player|
+    numbers.push(player[:number])
+  end 
+  numbers
+end 
+def player_stats(player_name)
+  stats={}
+  if game_hash[:home][:players][:player_name]==player_name
+    players=game_hash[:home][:players]
+    players.each do |player|
+     player[:player_name]==player_name
+    stats=player
+  else 
+     players=game_hash[:away][:players]
+      player[:player_name]==player_name
+    stats=player
+  end 
+  end 
+  stats 
+end 
+
+# I followed the code from the youtube video Hashketball 091619 by Evans Wang for this lab.
