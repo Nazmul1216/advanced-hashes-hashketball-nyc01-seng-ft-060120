@@ -177,14 +177,15 @@ def player_stats(player_name)
   stats={}
   if game_hash[:home][:players][:player_name]==player_name
     players=game_hash[:home][:players]
-    players.each do |player|
-     player[:player_name]==player_name
-    stats=player
+   
   else 
      players=game_hash[:away][:players]
       player[:player_name]==player_name
     stats=player
   end 
+  players.each do |player|
+     player[:player_name]==player_name
+    stats=player
   end 
   stats 
 end 
