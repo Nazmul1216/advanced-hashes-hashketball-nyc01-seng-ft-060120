@@ -190,8 +190,18 @@ def player_stats(player_name)
   stats 
 end
 def big_shoe_rebounds
-  max_shoe_size=20
-  players=game_hash
+  max_shoe_size=0
+  players=game_hash[:home][:players]
+  players.each do |player|
+    if player[:shoe]>max_shoe_size
+      max_shoe_size=player[:shoe]
+    end 
+  end
+  players=game_hash[:away][:players]
+  players.each do |player|
+    if player[:shoe]>max_shoe_size
+      max_shoe_size=player[:shoe]
+  end 
 end 
 
 # I followed the code from the youtube video Hashketball 091619 by Evans Wang for this lab.
