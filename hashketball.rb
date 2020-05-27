@@ -189,6 +189,9 @@ def player_stats(player_name)
   end 
   stats 
 end
-def 
+def big_shoe_rebounds
+  max_shoe_size=20
+  players=game_hash
+end 
 
 # I followed the code from the youtube video Hashketball 091619 by Evans Wang for this lab.
